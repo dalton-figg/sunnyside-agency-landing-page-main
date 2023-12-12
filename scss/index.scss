@@ -1,0 +1,263 @@
+@import "../scss/utilities/base";
+
+// [1] Reset + Base Styles
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-primary;
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  @include max-width(1440px);
+}
+
+img {
+  display: block;
+  font-style: italic;
+  height: auto;
+  max-width: 100%;
+}
+
+// [2] Navigation
+
+.navbar {
+  padding: calculateRem(32);
+  position: absolute;
+  width: 100%;
+  @include max-width(1440px);
+}
+
+.navbar__list {
+  list-style: none;
+  @include layout(flex, $align: center, $gap: calculateRem(48));
+}
+
+.navbar__list-item:first-child {
+  margin-right: auto;
+}
+
+.navbar__list-item:nth-child(5) {
+  flex: 1;
+  @include max-width(144px);
+}
+
+.navbar__list-item:not(:first-child):not(:last-child) {
+  display: none;
+
+  @include media(laptop){
+    display: block;
+  }
+}
+
+.navbar__list-item:last-child{
+  @include media(laptop){
+    display: none;
+  }
+}
+
+.navbar__list-link {
+  @include link-reset($clr-primary-900);
+}
+
+.navbar__list-button {
+  border-radius: calculateRem(24);
+  font-family: $font-secondary;
+  font-weight: 600;
+  height: 48px;
+  text-transform: uppercase;
+  @include appearance-reset($clr-primary-900);
+  @include max-width(144px);
+}
+
+// [3] Hero
+
+.hero {
+  @include layout(grid, $justify: center, $align: center);
+
+  > * {
+    @include layout($column: 1, $row: 1);
+  }
+}
+
+.hero__copy {
+  margin: 0 auto calculateRem(80);
+  text-align: center;
+  @include layout(
+    flex,
+    $direction: column,
+    $align: center,
+    $index: 1,
+    $gap: calculateRem(40)
+  );
+}
+
+.hero__title {
+  text-transform: uppercase;
+  @include font-size(40);
+  @include heading($clr-primary-900);
+  @include media(laptop) {
+    @include font-size(60);
+  }
+}
+
+// [4] Services
+
+.services {
+  @include layout(flex, $direction: column, $align: center);
+}
+
+.services {
+  text-align: center;
+
+  @include media(laptop) {
+    text-align: left;
+    @include layout(grid, $columns: repeat(2, 1fr));
+  }
+}
+
+.services__copy {
+  padding: calculateRem(32);
+  margin: 0 auto;
+  @include max-width(450px);
+  @include layout(
+    flex,
+    $direction: column,
+    $justify: center,
+    $gap: calculateRem(32)
+  );
+}
+
+.services__subheading {
+  @include heading;
+  @include font-size(36);
+}
+
+.services__copy p {
+  color: $clr-primary-600;
+  @include font-size(18);
+}
+
+.services__cta {
+  text-transform: uppercase;
+  @include link-reset;
+  @include heading;
+}
+
+.services__stacked {
+  @include layout(grid);
+
+  :first-child {
+    color: $clr-primary-100;
+  }
+
+  :last-child {
+    color: $clr-primary-200;
+  }
+
+  > * {
+    @include layout($column: 1, $row: 1);
+  }
+
+  &-copy {
+    text-align: center;
+    margin: 0 auto;
+    padding-block: calculateRem(36);
+    @include max-width(350px);
+    @include layout(
+      flex,
+      $direction: column,
+      $justify: end,
+      $align: center,
+      $gap: calculateRem(24)
+    );
+  }
+}
+
+// [5] Testimonials
+
+.testimonials {
+  padding: calculateRem(32);
+
+  @include media(laptop) {
+    padding-block: calculateRem(120);
+  }
+}
+
+.testimonials__heading {
+  @include heading($clr-primary-700);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-bottom: calculateRem(56);
+}
+
+.testimonials__content {
+  text-align: center;
+  @include layout(flex, $direction: column, $gap: calculateRem(45));
+  @include media(laptop) {
+    @include layout($direction: row);
+  }
+}
+
+.testimonial {
+  color: $clr-primary-300;
+  margin: 0 auto;
+  @include max-width(320px);
+  @include layout(
+    flex,
+    $direction: column,
+    $align: center,
+    $gap: calculateRem(36)
+  );
+}
+
+.testimonial__image {
+  border-radius: 50%;
+}
+
+.testimonial__name {
+  @include heading;
+}
+
+// [6] Gallery
+
+.gallery {
+  @include layout(grid, $columns: repeat(2, 1fr));
+  @include media(laptop) {
+    @include layout(grid, $columns: repeat(4, 1fr));
+  }
+}
+
+// [7] Footer
+
+.footer {
+  background-color: $clr-primary-400;
+  padding: calculateRem(75);
+  @include layout(
+    flex,
+    $direction: column,
+    $align: center,
+    $gap: calculateRem(32)
+  );
+}
+
+.footer__list {
+  list-style: none;
+  @include layout(flex, $gap: calculateRem(36));
+}
+
+.footer__list-link {
+  @include link-reset($clr-primary-100);
+}

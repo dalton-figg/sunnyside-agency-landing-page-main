@@ -1,0 +1,7 @@
+@function calculateRem($size, $base: 16) {
+  @return calc($size / $base) * 1rem;
+}
+
+@function generate-font-stack($font) {
+  @return $font, "Arial", system-ui, sans-serif;
+}

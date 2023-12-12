@@ -1,0 +1,16 @@
+// Colors (ordered by lightness)
+
+$clr-primary-900: hsl(0, 0%, 100%);
+$clr-primary-800: hsl(7, 99%, 70%);
+$clr-primary-700: hsl(210, 4%, 67%);
+$clr-primary-600: hsl(232, 10%, 55%);
+$clr-primary-500: hsl(51, 100%, 49%);
+$clr-primary-400: hsl(168, 34%, 41%);
+$clr-primary-300: hsl(213, 9%, 39%);
+$clr-primary-200: hsl(198, 62%, 26%);
+$clr-primary-100: hsl(167, 40%, 24%);
+
+// Fonts
+
+$font-primary: generate-font-stack("Barlow");
+$font-secondary: generate-font-stack("Fraunces");
